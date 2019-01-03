@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.grid-container{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 250px 250px 250px 250px 1fr;
+    grid-template-rows: 80px 300px 300px 300px 300px 300px 100px;
+
+    grid-template-areas: 
+    ". head head head head ."
+    ". box1 box2 box3 box4 ."
+    ". box5 box6 box7 box8 ."
+    ". box9 box10 box11 box12 ."
+    ". box13 box14 box15 box16 ."
+    ". box17 box18 box19 box20 ."
+    ". . . . . .";
+    grid-gap: 20px;
+}
+.head{
+    grid-area: head;
+    display: flex;
+    flex-direction: row;
+}
+.head-left, .head-right{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.head-left{
+    justify-content: flex-start;
+}
+.head-left h1{
+    
+    font-family: 'Bree Serif', serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+.head-right{
+    justify-content: flex-end;
+}
+.head-right h2{
+    
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+.story{ 
+    display: block;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+
+    /*display: flex;
+    flex-direction: column;
+    justify-content: flex-end;*/
+}
+.story h2{
+    display: block;
+    font-family: 'PT Serif', serif;
+    font-size: 22px;
+    font-weight: 700;
+    
+}
+.story h3{
+    display: block;
+    position: absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    bottom: 0px;
+    right: 0px;
+    margin: 5px;
+    
+}
+.story:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}

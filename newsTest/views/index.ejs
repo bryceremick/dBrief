@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>dBrief</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <div class="grid-container">
+            <div class="head">
+                <div class="head-left"><h1>dBrief.io</h1></div>
+                <div class="head-right"><h2>About</h2></div>
+            </div>
+                <% for (let i = 1; i < 21; i++){ %>
+                    <a class="story" target="_blank" onclick="" style="grid-area: box<%=i%>">
+                            <h2><%= articles[i].title%></h2>
+                            <h3><%= articles[i].source.name%></h3>
+                    </a>
+                <% } %>
+            </div>
+    </body>
+</html>
+
+<script>
+function createModal(raw){
+    
+console.log(raw);
+   /* var storyModal = document.createElement('div');
+    storyModal.innerHTML = story;
+    document.body.appendChild(storyModal);  */
+    
+}
+</script>
