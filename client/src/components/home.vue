@@ -1,5 +1,16 @@
 <template>
-  <h1>{{ test }}</h1>
+  <div id="container">
+    <div class="head">
+      <div class="head-left"><h1>dBrief.io</h1></div>
+      <div class="head-right"><h2>About</h2></div>
+    </div>
+    <div id="story-container">
+      <a class="story" v-for="(story,index) in articles" :key="index" :id="'box'+index" :href="story.url">
+        <h2>{{removeSource(story.title)}}</h2>
+        <h3>{{story.source.name}}</h3>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -12,46 +23,37 @@ export default {
     return {
       articles: [],
       success: true,
-      test: '',
     };
   },
   mounted() {
     Api()
       .post("/")
       .then(response => {
-       this.test = response.data.message;
+       this.articles = response.data.articles
+       this.success = true;
       })
       .catch(error => {
-        // This catches any error the server would send back
         console.log(error);
+        this.success = false;
       });
   },
   methods: {
-    
+    removeSource: function (title) {
+      let parts = title.split('-');
+      let newTitle = '';
+
+      for (let i = 0; i < parts.length-1; i++){
+
+        if (i < parts.length-2){
+          newTitle+=parts[i]+'-';
+        }else{
+          newTitle+=parts[i];
+        }
+      }
+
+      return newTitle;
+    }
   }
 };
 </script>
 
-
-
-
-
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
